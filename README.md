@@ -7,18 +7,19 @@ In this assignment, you will write a series of programs that simulate how a plan
 1. Create a separate Python file (`.py`) for each part. The filename must match the one specified in the part exactly (e.g., `part1.py`).
 2. Ensure that each program runs without errors. If your code fails to execute, a flat 20% penalty will be applied, regardless of the nature of the error.
 3. Your program output must match the expected format shown in the "Example output" of each part.
-4. Unless stated otherwise, follow these formatting rules for all printed values. **User inputs** should be printed with no unnecessary trailing zeros — use the `g` format specifier in an f-string for this. For example, `f"{2.0:g}"` gives `"2"` and `f"{1.50:g}"` gives `"1.5"`. **Computed values** should always be printed rounded to exactly 2 decimal places — use the `round()` function for this. The function works as `round(number, decimal_places)`. For example, `round(11.5752, 2)` gives `11.58`.
-5. Use the `input()` function to collect user input. Since `input()` always returns a string, you must convert it to the appropriate type before using it in calculations.
+4. Use the `input()` function to collect user input. Since `input()` always returns a string, you must convert it to the appropriate type before using it in calculations. Note that some inputs must be integers (e.g., `days`), while others may contain decimals — make sure to store integer values as `int` and decimal values as `float`.
+5. When prompting for user input, always follow the exact order listed in each task.
+6. Unless stated otherwise, **computed values** should always be printed rounded to exactly 2 decimal places — use the `round()` function for this. The function works as `round(number, decimal_places)`. For example, `round(11.5752, 2)` gives `11.58`.
 
 
 ## Part 1. Fixed Daily Compound Growth [25 Points]
 Create a file named `part1.py`.
 
-You're managing a research greenhouse that monitors the growth of experimental plants. Your goal is to project a plant's height after a period of time using a program that models how plants grow under different conditions. As a start, we assume the plant grows by a fixed percentage of its current height every day — this is called **daily compound growth**.
+You're managing a research greenhouse that monitors the growth of experimental plants. Your goal is to project a plant's height after a period of time using a program that models how plants grow under different conditions. As a start, we assume the plant grows by a fixed percentage of its current height every day — this is called daily compound growth.
 
 ### Task 1.1 — User Input
 
-Ask the user to enter the following information. You must use the exact variable names listed below, and prompt for them in this exact order:
+Ask the user to enter the following information. You must use the exact variable names listed below, and prompt for them in **this exact order**:
 
 - `initial_height` — starting height of the plant in cm
 - `daily_growth` — daily growth rate as a decimal (e.g. `0.02` for 2%)
@@ -57,7 +58,7 @@ In your greenhouse setup, a nutrient boost is automatically administered every 7
 
 ### Task 2.1 — User Input
 
-Ask the user to enter the following information. You must use the exact variable names listed below, and prompt for them in this exact order:
+Ask the user to enter the following information. You must use the exact variable names listed below, and prompt for them in **this exact order**:
 
 - `initial_height` — starting height of the plant in cm
 - `daily_growth` — daily growth rate as a decimal (e.g. `0.02` for 2%)
@@ -97,7 +98,7 @@ In this part, you will write a program to determine how many days it takes for a
 
 ### Task 3.1 — User Input
 
-Ask the user to enter the following information. You must use the exact variable names listed below, and prompt for them in this exact order:
+Ask the user to enter the following information. You must use the exact variable names listed below, and prompt for them in **this exact order**:
 
 - `initial_height` — starting height of the plant in cm
 - `daily_growth` — daily growth rate as a decimal (e.g. `0.02` for 2%)
@@ -139,7 +140,7 @@ You are running a time-sensitive plant experiment and want your plant to reach a
 
 ### Task 4.1 — User Input
 
-Ask the user to enter the following information. You must use the exact variable names listed below, and prompt for them in this exact order:
+Ask the user to enter the following information. You must use the exact variable names listed below, and prompt for them in **this exact order**:
 
 - `initial_height` — starting height of the plant in cm
 - `daily_growth` — daily growth rate as a decimal (e.g. `0.02` for 2%)
@@ -150,6 +151,8 @@ Ask the user to enter the following information. You must use the exact variable
 ### Task 4.2 — Find the Least Frequent Boost Schedule
 
 Determine the least frequent boost schedule that still allows the plant to reach `target_height` within the given number of days. Consider all possible boost intervals and identify the largest interval that works — that is, the one that requires boosting least often. If multiple intervals allow the plant to meet the target, report the largest one. If no interval works, including applying the boost every single day, report that the target is not achievable within the given number of days.
+
+***Hint.*** The boost interval is represented as "every X days", where X is a positive integer. You can try different values of X — starting from the largest possible interval and working downward — to find the smallest X that still allows the plant to reach the target. The largest possible interval to try is `days` itself (i.e., one boost applied on the final day), and the smallest is 1 (a boost every single day).
 
 ### Task 4.3 — Print the Result
 
